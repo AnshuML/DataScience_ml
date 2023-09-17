@@ -17,6 +17,7 @@ def home_page():
 def predict_datapoint():
     if request.method=='GET':
         return render_template('form.html')
+
     
     else:
         data=CustomData(
@@ -30,9 +31,9 @@ def predict_datapoint():
             color= request.form.get('color'),
             clarity = request.form.get('clarity')
         )
-        final_new_data=data.get_data_as_dataframe()
+        final_new_data=data.get_data_as_Dataframe()
         predict_pipeline=PredictPipeline()
-        pred=predict_pipeline.predict(final_new_data)
+        pred=predict_pipeline.Predict(final_new_data)
 
         results=round(pred[0],2)
 

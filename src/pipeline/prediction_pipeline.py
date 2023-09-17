@@ -47,9 +47,9 @@ class CustomData:
         self.clarity = clarity
 
 
-def get_data_as_Dataframe(self):
-    try:
-        custom_data_input_dict = {
+    def get_data_as_Dataframe(self):
+        try:
+            custom_data_input_dict = {
                 'carat':[self.carat],
                 'depth':[self.depth],
                 'table':[self.table],
@@ -60,11 +60,10 @@ def get_data_as_Dataframe(self):
                 'color':[self.color],
                 'clarity':[self.clarity]
             }
-        df=pd.DataFrame(custom_data_input_dict)
-        logging.info("dataframe gathered")
-        return df
-    except Exception as e:
-        logging.info('Execution occoures in prediction pipeline')
-        raise CustomException(e,sys)
-    
+            df = pd.DataFrame(custom_data_input_dict)
+            logging.info('Dataframe Gathered')
+            return df
+        except Exception as e:
+            logging.info('Exception Occured in prediction pipeline')
+            raise CustomException(e,sys)
 
